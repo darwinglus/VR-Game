@@ -1,0 +1,14 @@
+using UnityEngine;
+
+[CreateAssetMenu(fileName = "NetworkConfig", menuName = "Config/NetworkConfig", order = 2)]
+public class NetworkConfig : ScriptableObject
+{
+    public string serverAddress = "127.0.0.1";
+    public int serverPort = 7777;
+    public bool useEncryption = false;
+
+    public void PrintConfig()
+    {
+        Debug.Log($"Server Address: {serverAddress}, Port: {serverPort}, Encryption: {useEncryption}");
+    }
+}

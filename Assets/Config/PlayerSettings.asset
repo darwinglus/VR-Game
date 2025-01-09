@@ -1,0 +1,16 @@
+using UnityEngine;
+
+[CreateAssetMenu(fileName = "PlayerSettings", menuName = "Config/PlayerSettings", order = 3)]
+public class PlayerSettings : ScriptableObject
+{
+    public string playerName = "DefaultPlayer";
+    public int playerLevel = 1;
+    public float playerHealth = 100f;
+
+    public void ResetSettings()
+    {
+        playerName = "DefaultPlayer";
+        playerLevel = 1;
+        playerHealth = 100f;
+    }
+}

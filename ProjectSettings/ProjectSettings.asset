@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!129 &1
+PlayerSettings:
+  companyName: "YourCompanyName"
+  productName: "VRGameProject"
+  bundleVersion: "1.0.0"
+  defaultScreenWidth: 1920
+  defaultScreenHeight: 1080
+  fullscreenMode: 1
+  scriptingBackend: 1
+  colorSpace: 1
+  vrSupported: 1
+  activeColorSpace: 1
+  graphicsAPIs:
+    - "Direct3D11"
+    - "OpenGLES3"
+  androidMinSdkVersion: 23
+  apiCompatibilityLevelPerPlatform:
+    Standalone: "NET_Standard_2_0"
+    Android: "NET_Standard_2_0"
