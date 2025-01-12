@@ -6,7 +6,7 @@ public class GameSettings : ScriptableObject
     public string gameVersion = "1.0.0";
     public bool enableVR = true;
     public bool enableMultiplayer = false;
-    public float musicVolume = 0.5f;
+    public float  musicVolume = 0.5f;
     public float sfxVolume = 0.7f;
 
     public void ApplySettings()
