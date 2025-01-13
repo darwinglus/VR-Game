@@ -3,12 +3,56 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "NetworkConfig", menuName = "Config/NetworkConfig", order = 2)]
 public class NetworkConfig : ScriptableObject
 {
-    public string serverAddress = "127.0.0.1";
-    public int serverPort = 7777;
-    public bool useEncryption = false;
+    [Header("Network Settings")]
+    [Tooltip("The server's IP address or domain name.")]
+    [SerializeField] private string serverAddress = "127.0.0.1";
 
+    [Tooltip("The port used for server communication.")]
+    [SerializeField] private int serverPort = 7777;
+
+    [Tooltip("Enable or disable encryption for communication.")]
+    [SerializeField] private bool useEncryption = false;
+
+    /// <summary>
+    /// Gets the server's address.
+    /// </summary>
+    public string ServerAddress => serverAddress;
+
+    /// <summary>
+    /// Gets the server's port.
+    /// </summary>
+    public int ServerPort => serverPort;
+
+    /// <summary>
+    /// Indicates whether encryption is enabled.
+    /// </summary>
+    public bool UseEncryption => useEncryption;
+
+    /// <summary>
+    /// Logs the current configuration details.
+    /// </summary>
     public void PrintConfig()
     {
-        Debug.Log($"Server Address: {serverAddress}, Port: {serverPort}, Encryption: {useEncryption}");
+        Debug.Log($"[NetworkConfig] Server Address: {ServerAddress}, Port: {ServerPort}, Encryption: {UseEncryption}");
+    }
+
+    /// <summary>
+    /// Validates the network configuration.
+    /// </summary>
+    public bool IsValidConfig()
+    {
+        if (string.IsNullOrEmpty(serverAddress))
+        {
+            Debug.LogError("[NetworkConfig] Invalid server address!");
+            return false;
+        }
+
+        if (serverPort <= 0 || serverPort > 65535)
+        {
+            Debug.LogError("[NetworkConfig] Invalid server port! Port must be between 1 and 65535.");
+            return false;
+        }
+
+        return true;
     }
 }
